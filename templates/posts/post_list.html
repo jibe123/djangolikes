@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post list</title>
+</head>
+<body>
+{% block content %}
+{% for post in post_list %}
+<div class="square">
+        <p>
+            <a href="/posts/{{ post.id }}">{{ forloop.counter }}. {{ post }}</a>
+        </p>
+        <p>
+            {{ post.description }}
+        </p>
+        <p>
+            <form action="{% url 'post-like' post.id %}" method="POST">
+            {% csrf_token %}
+                <button type="submit" name="post_id" value="{{ post.id }}"
+                        class="btn btn-primary btn-sm">Like</button> - {{ post.total_likes }} likes
+            </form>
+        </p>
+</div>
+{% endfor %}
+{% endblock %}
+</body>
+</html>

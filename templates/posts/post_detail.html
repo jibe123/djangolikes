@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Post detail
+{% endblock %}
+
+{% block content %}
+<div>
+    <h1><b>Title: {{ post_detail.title }}</b></h1>
+    <h3 style="margin-top: 45px">Description: {{ post_detail.description }}</h3>
+    <p><i>Author: {{ post_detail.author }}</i></p>
+    <p><i>Posted on: {{ post_detail.posted_on }}</i></p>
+    <p><i>Likes: {{ post_detail.total_likes }}</i></p>
+</div>
+{% endblock %}
